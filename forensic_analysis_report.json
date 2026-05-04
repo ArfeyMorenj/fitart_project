@@ -1,0 +1,769 @@
+{
+    "timestamp": "2026-04-14 09:39:25",
+    "summary": {
+        "totalLaravel": 171,
+        "totalPostman": 0,
+        "totalTested": 0,
+        "totalUntested": 0,
+        "coveragePercent": 0
+    },
+    "untestedEndpoints": [],
+    "notInPostman": {
+        "POST //login": {
+            "method": "POST",
+            "path": "//login",
+            "type": "direct"
+        },
+        "POST //logout": {
+            "method": "POST",
+            "path": "//logout",
+            "type": "direct"
+        },
+        "GET //me": {
+            "method": "GET",
+            "path": "//me",
+            "type": "direct"
+        },
+        "GET //company/settings": {
+            "method": "GET",
+            "path": "//company/settings",
+            "type": "direct"
+        },
+        "POST //company/settings": {
+            "method": "POST",
+            "path": "//company/settings",
+            "type": "direct"
+        },
+        "GET //tax-series": {
+            "method": "GET",
+            "path": "//tax-series",
+            "type": "direct"
+        },
+        "POST //tax-series": {
+            "method": "POST",
+            "path": "//tax-series",
+            "type": "direct"
+        },
+        "POST //tax-series/{taxSeries}/next": {
+            "method": "POST",
+            "path": "//tax-series/{taxSeries}/next",
+            "type": "direct"
+        },
+        "DELETE //tax-series/{taxSeries}": {
+            "method": "DELETE",
+            "path": "//tax-series/{taxSeries}",
+            "type": "direct"
+        },
+        "GET //companies/search": {
+            "method": "GET",
+            "path": "//companies/search",
+            "type": "direct"
+        },
+        "GET //clients/search": {
+            "method": "GET",
+            "path": "//clients/search",
+            "type": "direct"
+        },
+        "GET //products/search": {
+            "method": "GET",
+            "path": "//products/search",
+            "type": "direct"
+        },
+        "GET //items/search": {
+            "method": "GET",
+            "path": "//items/search",
+            "type": "direct"
+        },
+        "GET //banks/search": {
+            "method": "GET",
+            "path": "//banks/search",
+            "type": "direct"
+        },
+        "GET //team-members/search": {
+            "method": "GET",
+            "path": "//team-members/search",
+            "type": "direct"
+        },
+        "GET //invoice-types/search": {
+            "method": "GET",
+            "path": "//invoice-types/search",
+            "type": "direct"
+        },
+        "GET //master-item-products/search": {
+            "method": "GET",
+            "path": "//master-item-products/search",
+            "type": "direct"
+        },
+        "GET //product-groups/search": {
+            "method": "GET",
+            "path": "//product-groups/search",
+            "type": "direct"
+        },
+        "GET //chart-of-accounts/search": {
+            "method": "GET",
+            "path": "//chart-of-accounts/search",
+            "type": "direct"
+        },
+        "GET //chart-of-accounts": {
+            "method": "GET",
+            "path": "//chart-of-accounts",
+            "type": "direct"
+        },
+        "GET //chart-of-accounts/{chartOfAccount}": {
+            "method": "GET",
+            "path": "//chart-of-accounts/{chartOfAccount}",
+            "type": "direct"
+        },
+        "POST /users/{user}/assign-role": {
+            "method": "POST",
+            "path": "/users/{user}/assign-role",
+            "type": "direct"
+        },
+        "POST /users/{user}/toggle-status": {
+            "method": "POST",
+            "path": "/users/{user}/toggle-status",
+            "type": "direct"
+        },
+        "POST /invoice-types/{invoiceType}/toggle-status": {
+            "method": "POST",
+            "path": "/invoice-types/{invoiceType}/toggle-status",
+            "type": "direct"
+        },
+        "POST /master-item-products/{masterItemProduct}/toggle-status": {
+            "method": "POST",
+            "path": "/master-item-products/{masterItemProduct}/toggle-status",
+            "type": "direct"
+        },
+        "GET /work-orders/search": {
+            "method": "GET",
+            "path": "/work-orders/search",
+            "type": "direct"
+        },
+        "POST /work-orders/{work_order}/assign-team": {
+            "method": "POST",
+            "path": "/work-orders/{work_order}/assign-team",
+            "type": "direct"
+        },
+        "GET /stop-licenses/search": {
+            "method": "GET",
+            "path": "/stop-licenses/search",
+            "type": "direct"
+        },
+        "GET /invoice-license": {
+            "method": "GET",
+            "path": "/invoice-license",
+            "type": "direct"
+        },
+        "GET /invoice-license/search": {
+            "method": "GET",
+            "path": "/invoice-license/search",
+            "type": "direct"
+        },
+        "GET /invoice-license/{invoice}/summary-journal": {
+            "method": "GET",
+            "path": "/invoice-license/{invoice}/summary-journal",
+            "type": "direct"
+        },
+        "GET /invoice-license/{invoice}": {
+            "method": "GET",
+            "path": "/invoice-license/{invoice}",
+            "type": "direct"
+        },
+        "GET /invoice-products": {
+            "method": "GET",
+            "path": "/invoice-products",
+            "type": "direct"
+        },
+        "GET /invoice-products/search": {
+            "method": "GET",
+            "path": "/invoice-products/search",
+            "type": "direct"
+        },
+        "GET /invoice-products/{invoice}/summary-journal": {
+            "method": "GET",
+            "path": "/invoice-products/{invoice}/summary-journal",
+            "type": "direct"
+        },
+        "GET /invoice-products/{invoice}": {
+            "method": "GET",
+            "path": "/invoice-products/{invoice}",
+            "type": "direct"
+        },
+        "GET /debit-credit-notes/search": {
+            "method": "GET",
+            "path": "/debit-credit-notes/search",
+            "type": "direct"
+        },
+        "GET /debit-credit-notes/{debitCreditNote}/summary-journal": {
+            "method": "GET",
+            "path": "/debit-credit-notes/{debitCreditNote}/summary-journal",
+            "type": "direct"
+        },
+        "GET /payments": {
+            "method": "GET",
+            "path": "/payments"
+        },
+        "GET /payments/search": {
+            "method": "GET",
+            "path": "/payments/search",
+            "type": "direct"
+        },
+        "GET /payments/{postingPayment}": {
+            "method": "GET",
+            "path": "/payments/{postingPayment}",
+            "type": "direct"
+        },
+        "GET /payments/{postingPayment}/summary-journal": {
+            "method": "GET",
+            "path": "/payments/{postingPayment}/summary-journal",
+            "type": "direct"
+        },
+        "GET /payments/{postingPayment}/costs": {
+            "method": "GET",
+            "path": "/payments/{postingPayment}/costs",
+            "type": "direct"
+        },
+        "GET /journals": {
+            "method": "GET",
+            "path": "/journals",
+            "type": "direct"
+        },
+        "GET /dashboard": {
+            "method": "GET",
+            "path": "/dashboard",
+            "type": "direct"
+        },
+        "GET /ar/summary": {
+            "method": "GET",
+            "path": "/ar/summary",
+            "type": "direct"
+        },
+        "GET /ar/ledger": {
+            "method": "GET",
+            "path": "/ar/ledger",
+            "type": "direct"
+        },
+        "GET /invoices/register": {
+            "method": "GET",
+            "path": "/invoices/register",
+            "type": "direct"
+        },
+        "GET /invoices/history": {
+            "method": "GET",
+            "path": "/invoices/history",
+            "type": "direct"
+        },
+        "GET /tax": {
+            "method": "GET",
+            "path": "/tax",
+            "type": "direct"
+        },
+        "GET /tax/vat": {
+            "method": "GET",
+            "path": "/tax/vat",
+            "type": "direct"
+        },
+        "GET /tax/summary": {
+            "method": "GET",
+            "path": "/tax/summary",
+            "type": "direct"
+        },
+        "GET /sales": {
+            "method": "GET",
+            "path": "/sales",
+            "type": "direct"
+        },
+        "GET /sales/summary": {
+            "method": "GET",
+            "path": "/sales/summary",
+            "type": "direct"
+        },
+        "GET /sales/client": {
+            "method": "GET",
+            "path": "/sales/client",
+            "type": "direct"
+        },
+        "GET /cash": {
+            "method": "GET",
+            "path": "/cash",
+            "type": "direct"
+        },
+        "GET /fiscal-commercial": {
+            "method": "GET",
+            "path": "/fiscal-commercial",
+            "type": "direct"
+        },
+        "GET /receivable/by-item": {
+            "method": "GET",
+            "path": "/receivable/by-item",
+            "type": "direct"
+        },
+        "GET /receivable/data": {
+            "method": "GET",
+            "path": "/receivable/data",
+            "type": "direct"
+        },
+        "GET /receivable/process-detail": {
+            "method": "GET",
+            "path": "/receivable/process-detail",
+            "type": "direct"
+        },
+        "GET /receivable/summary": {
+            "method": "GET",
+            "path": "/receivable/summary",
+            "type": "direct"
+        },
+        "GET /receivable/detail": {
+            "method": "GET",
+            "path": "/receivable/detail",
+            "type": "direct"
+        },
+        "GET /invoices/batch": {
+            "method": "GET",
+            "path": "/invoices/batch",
+            "type": "direct"
+        },
+        "POST /invoices/batch": {
+            "method": "POST",
+            "path": "/invoices/batch",
+            "type": "direct"
+        },
+        "GET /invoices/{invoice}/pdf": {
+            "method": "GET",
+            "path": "/invoices/{invoice}/pdf",
+            "type": "direct"
+        },
+        "GET /receipts/{posting_payment}/pdf": {
+            "method": "GET",
+            "path": "/receipts/{posting_payment}/pdf",
+            "type": "direct"
+        },
+        "POST /receivables/process": {
+            "method": "POST",
+            "path": "/receivables/process",
+            "type": "direct"
+        },
+        "POST /recurring/invoices/generate": {
+            "method": "POST",
+            "path": "/recurring/invoices/generate",
+            "type": "direct"
+        },
+        "POST /omzet": {
+            "method": "POST",
+            "path": "/omzet",
+            "type": "direct"
+        },
+        "POST /payments": {
+            "method": "POST",
+            "path": "/payments"
+        },
+        "POST /payments/{postingPayment}/costs": {
+            "method": "POST",
+            "path": "/payments/{postingPayment}/costs",
+            "type": "direct"
+        },
+        "PUT /payments/{postingPayment}/costs/{cost}": {
+            "method": "PUT",
+            "path": "/payments/{postingPayment}/costs/{cost}",
+            "type": "direct"
+        },
+        "DELETE /payments/{postingPayment}/costs/{cost}": {
+            "method": "DELETE",
+            "path": "/payments/{postingPayment}/costs/{cost}",
+            "type": "direct"
+        },
+        "GET /users": {
+            "method": "GET",
+            "path": "/users"
+        },
+        "POST /users": {
+            "method": "POST",
+            "path": "/users"
+        },
+        "GET /users/{id}": {
+            "method": "GET",
+            "path": "/users/{id}"
+        },
+        "PUT /users/{id}": {
+            "method": "PUT",
+            "path": "/users/{id}"
+        },
+        "DELETE /users/{id}": {
+            "method": "DELETE",
+            "path": "/users/{id}"
+        },
+        "GET /companies": {
+            "method": "GET",
+            "path": "/companies"
+        },
+        "POST /companies": {
+            "method": "POST",
+            "path": "/companies"
+        },
+        "GET /companies/{id}": {
+            "method": "GET",
+            "path": "/companies/{id}"
+        },
+        "PUT /companies/{id}": {
+            "method": "PUT",
+            "path": "/companies/{id}"
+        },
+        "DELETE /companies/{id}": {
+            "method": "DELETE",
+            "path": "/companies/{id}"
+        },
+        "GET /clients": {
+            "method": "GET",
+            "path": "/clients"
+        },
+        "POST /clients": {
+            "method": "POST",
+            "path": "/clients"
+        },
+        "GET /clients/{id}": {
+            "method": "GET",
+            "path": "/clients/{id}"
+        },
+        "PUT /clients/{id}": {
+            "method": "PUT",
+            "path": "/clients/{id}"
+        },
+        "DELETE /clients/{id}": {
+            "method": "DELETE",
+            "path": "/clients/{id}"
+        },
+        "GET /team-members": {
+            "method": "GET",
+            "path": "/team-members"
+        },
+        "POST /team-members": {
+            "method": "POST",
+            "path": "/team-members"
+        },
+        "GET /team-members/{id}": {
+            "method": "GET",
+            "path": "/team-members/{id}"
+        },
+        "PUT /team-members/{id}": {
+            "method": "PUT",
+            "path": "/team-members/{id}"
+        },
+        "DELETE /team-members/{id}": {
+            "method": "DELETE",
+            "path": "/team-members/{id}"
+        },
+        "GET /product-groups": {
+            "method": "GET",
+            "path": "/product-groups"
+        },
+        "POST /product-groups": {
+            "method": "POST",
+            "path": "/product-groups"
+        },
+        "GET /product-groups/{id}": {
+            "method": "GET",
+            "path": "/product-groups/{id}"
+        },
+        "PUT /product-groups/{id}": {
+            "method": "PUT",
+            "path": "/product-groups/{id}"
+        },
+        "DELETE /product-groups/{id}": {
+            "method": "DELETE",
+            "path": "/product-groups/{id}"
+        },
+        "GET /products": {
+            "method": "GET",
+            "path": "/products"
+        },
+        "POST /products": {
+            "method": "POST",
+            "path": "/products"
+        },
+        "GET /products/{id}": {
+            "method": "GET",
+            "path": "/products/{id}"
+        },
+        "PUT /products/{id}": {
+            "method": "PUT",
+            "path": "/products/{id}"
+        },
+        "DELETE /products/{id}": {
+            "method": "DELETE",
+            "path": "/products/{id}"
+        },
+        "GET /items": {
+            "method": "GET",
+            "path": "/items"
+        },
+        "POST /items": {
+            "method": "POST",
+            "path": "/items"
+        },
+        "GET /items/{id}": {
+            "method": "GET",
+            "path": "/items/{id}"
+        },
+        "PUT /items/{id}": {
+            "method": "PUT",
+            "path": "/items/{id}"
+        },
+        "DELETE /items/{id}": {
+            "method": "DELETE",
+            "path": "/items/{id}"
+        },
+        "GET /banks": {
+            "method": "GET",
+            "path": "/banks"
+        },
+        "POST /banks": {
+            "method": "POST",
+            "path": "/banks"
+        },
+        "GET /banks/{id}": {
+            "method": "GET",
+            "path": "/banks/{id}"
+        },
+        "PUT /banks/{id}": {
+            "method": "PUT",
+            "path": "/banks/{id}"
+        },
+        "DELETE /banks/{id}": {
+            "method": "DELETE",
+            "path": "/banks/{id}"
+        },
+        "GET /invoice-types": {
+            "method": "GET",
+            "path": "/invoice-types"
+        },
+        "POST /invoice-types": {
+            "method": "POST",
+            "path": "/invoice-types"
+        },
+        "GET /invoice-types/{id}": {
+            "method": "GET",
+            "path": "/invoice-types/{id}"
+        },
+        "PUT /invoice-types/{id}": {
+            "method": "PUT",
+            "path": "/invoice-types/{id}"
+        },
+        "DELETE /invoice-types/{id}": {
+            "method": "DELETE",
+            "path": "/invoice-types/{id}"
+        },
+        "GET /master-item-products": {
+            "method": "GET",
+            "path": "/master-item-products"
+        },
+        "POST /master-item-products": {
+            "method": "POST",
+            "path": "/master-item-products"
+        },
+        "GET /master-item-products/{id}": {
+            "method": "GET",
+            "path": "/master-item-products/{id}"
+        },
+        "PUT /master-item-products/{id}": {
+            "method": "PUT",
+            "path": "/master-item-products/{id}"
+        },
+        "DELETE /master-item-products/{id}": {
+            "method": "DELETE",
+            "path": "/master-item-products/{id}"
+        },
+        "GET /work-orders": {
+            "method": "GET",
+            "path": "/work-orders"
+        },
+        "POST /work-orders": {
+            "method": "POST",
+            "path": "/work-orders"
+        },
+        "GET /work-orders/{id}": {
+            "method": "GET",
+            "path": "/work-orders/{id}"
+        },
+        "PUT /work-orders/{id}": {
+            "method": "PUT",
+            "path": "/work-orders/{id}"
+        },
+        "DELETE /work-orders/{id}": {
+            "method": "DELETE",
+            "path": "/work-orders/{id}"
+        },
+        "GET /installations": {
+            "method": "GET",
+            "path": "/installations"
+        },
+        "POST /installations": {
+            "method": "POST",
+            "path": "/installations"
+        },
+        "GET /installations/{id}": {
+            "method": "GET",
+            "path": "/installations/{id}"
+        },
+        "PUT /installations/{id}": {
+            "method": "PUT",
+            "path": "/installations/{id}"
+        },
+        "DELETE /installations/{id}": {
+            "method": "DELETE",
+            "path": "/installations/{id}"
+        },
+        "GET /licenses": {
+            "method": "GET",
+            "path": "/licenses"
+        },
+        "POST /licenses": {
+            "method": "POST",
+            "path": "/licenses"
+        },
+        "GET /licenses/{id}": {
+            "method": "GET",
+            "path": "/licenses/{id}"
+        },
+        "PUT /licenses/{id}": {
+            "method": "PUT",
+            "path": "/licenses/{id}"
+        },
+        "DELETE /licenses/{id}": {
+            "method": "DELETE",
+            "path": "/licenses/{id}"
+        },
+        "GET /stop-licenses": {
+            "method": "GET",
+            "path": "/stop-licenses"
+        },
+        "POST /stop-licenses": {
+            "method": "POST",
+            "path": "/stop-licenses"
+        },
+        "GET /stop-licenses/{id}": {
+            "method": "GET",
+            "path": "/stop-licenses/{id}"
+        },
+        "PUT /stop-licenses/{id}": {
+            "method": "PUT",
+            "path": "/stop-licenses/{id}"
+        },
+        "DELETE /stop-licenses/{id}": {
+            "method": "DELETE",
+            "path": "/stop-licenses/{id}"
+        },
+        "GET /invoices": {
+            "method": "GET",
+            "path": "/invoices"
+        },
+        "POST /invoices": {
+            "method": "POST",
+            "path": "/invoices"
+        },
+        "GET /invoices/{id}": {
+            "method": "GET",
+            "path": "/invoices/{id}"
+        },
+        "PUT /invoices/{id}": {
+            "method": "PUT",
+            "path": "/invoices/{id}"
+        },
+        "DELETE /invoices/{id}": {
+            "method": "DELETE",
+            "path": "/invoices/{id}"
+        },
+        "GET /invoice-items": {
+            "method": "GET",
+            "path": "/invoice-items"
+        },
+        "POST /invoice-items": {
+            "method": "POST",
+            "path": "/invoice-items"
+        },
+        "GET /invoice-items/{id}": {
+            "method": "GET",
+            "path": "/invoice-items/{id}"
+        },
+        "PUT /invoice-items/{id}": {
+            "method": "PUT",
+            "path": "/invoice-items/{id}"
+        },
+        "DELETE /invoice-items/{id}": {
+            "method": "DELETE",
+            "path": "/invoice-items/{id}"
+        },
+        "GET /payments/{id}": {
+            "method": "GET",
+            "path": "/payments/{id}"
+        },
+        "PUT /payments/{id}": {
+            "method": "PUT",
+            "path": "/payments/{id}"
+        },
+        "DELETE /payments/{id}": {
+            "method": "DELETE",
+            "path": "/payments/{id}"
+        },
+        "GET /debit-credit-notes": {
+            "method": "GET",
+            "path": "/debit-credit-notes"
+        },
+        "POST /debit-credit-notes": {
+            "method": "POST",
+            "path": "/debit-credit-notes"
+        },
+        "GET /debit-credit-notes/{id}": {
+            "method": "GET",
+            "path": "/debit-credit-notes/{id}"
+        },
+        "PUT /debit-credit-notes/{id}": {
+            "method": "PUT",
+            "path": "/debit-credit-notes/{id}"
+        },
+        "DELETE /debit-credit-notes/{id}": {
+            "method": "DELETE",
+            "path": "/debit-credit-notes/{id}"
+        },
+        "GET /receivables": {
+            "method": "GET",
+            "path": "/receivables"
+        },
+        "POST /receivables": {
+            "method": "POST",
+            "path": "/receivables"
+        },
+        "GET /receivables/{id}": {
+            "method": "GET",
+            "path": "/receivables/{id}"
+        },
+        "PUT /receivables/{id}": {
+            "method": "PUT",
+            "path": "/receivables/{id}"
+        },
+        "DELETE /receivables/{id}": {
+            "method": "DELETE",
+            "path": "/receivables/{id}"
+        },
+        "GET /protections": {
+            "method": "GET",
+            "path": "/protections"
+        },
+        "POST /protections": {
+            "method": "POST",
+            "path": "/protections"
+        },
+        "GET /protections/{id}": {
+            "method": "GET",
+            "path": "/protections/{id}"
+        },
+        "PUT /protections/{id}": {
+            "method": "PUT",
+            "path": "/protections/{id}"
+        },
+        "DELETE /protections/{id}": {
+            "method": "DELETE",
+            "path": "/protections/{id}"
+        }
+    },
+    "invalidInPostman": []
+}

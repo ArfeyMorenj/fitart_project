@@ -1,0 +1,271 @@
+{
+  "info": {
+    "name": "Fitart Project API",
+    "description": "Generated Postman collection from routes/api.php - includes request examples and required fields based on controller validations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000/api"
+    },
+    {
+      "key": "token",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Public",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"password\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/login",
+              "host": ["{{base_url}}"],
+              "path": ["login"]
+            }
+          }
+        },
+        {
+          "name": "Test API",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/test",
+              "host": ["{{base_url}}"],
+              "path": ["test"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Logout",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": { "raw": "{{base_url}}/logout", "host": ["{{base_url}}"], "path": ["logout"] }
+          }
+        },
+        {
+          "name": "Me",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ],
+            "url": { "raw": "{{base_url}}/me", "host": ["{{base_url}}"], "path": ["me"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Clients",
+      "item": [
+        {
+          "name": "List Clients",
+          "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/clients", "host": ["{{base_url}}"], "path": ["clients"] } }
+        },
+        {
+          "name": "Create Client",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"code\": \"C-001\",\n  \"status\": \"NON GROUP\",\n  \"name\": \"PT. Contoh\",\n  \"address\": \"Jl. Merdeka 1\",\n  \"city\": \"Jakarta\",\n  \"phone\": \"081234567890\",\n  \"fax\": \"021-555-1234\",\n  \"npwp\": \"01.234.567.8-901.000\",\n  \"npkp\": \"NP-0001\",\n  \"tax_name\": \"PT. Contoh\",\n  \"tax_address\": \"Jl. Pajak 1\",\n  \"credit_term_days\": 30,\n  \"is_active\": true\n}", "options": { "raw": { "language": "json" } } },
+            "url": { "raw": "{{base_url}}/clients", "host": ["{{base_url}}"], "path": ["clients"] }
+          }
+        },
+        {
+          "name": "Show Client",
+          "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/clients/:id", "host": ["{{base_url}}"], "path": ["clients", ":id"] } }
+        },
+        {
+          "name": "Update Client",
+          "request": {
+            "method": "PUT",
+            "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ],
+            "body": { "mode": "raw", "raw": "{\n  \"code\": \"C-001\",\n  \"status\": \"GROUP A\",\n  \"name\": \"PT. Contoh (updated)\",\n  \"city\": \"Jakarta\",\n  \"fax\": \"021-555-1234\",\n  \"npkp\": \"NP-0001\",\n  \"tax_name\": \"PT. Contoh Updated\",\n  \"tax_address\": \"Jl. Pajak 2\",\n  \"credit_term_days\": 45,\n  \"is_active\": false\n}", "options": { "raw": { "language": "json" } } },
+            "url": { "raw": "{{base_url}}/clients/:id", "host": ["{{base_url}}"], "path": ["clients", ":id"] }
+          }
+        },
+        {
+          "name": "Delete Client",
+          "request": { "method": "DELETE", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/clients/:id", "host": ["{{base_url}}"], "path": ["clients", ":id"] } }
+        },
+        {
+          "name": "Search Clients",
+          "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/clients/search?q=keyword", "host": ["{{base_url}}"], "path": ["clients", "search"], "query": [ { "key": "q", "value": "keyword" } ] } }
+        }
+      ]
+    },
+    {
+      "name": "Companies",
+      "item": [
+        { "name": "List Companies", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/companies", "host": ["{{base_url}}"], "path": ["companies"] } } },
+        { "name": "Create Company", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n  \"code\": \"CMP-01\",\n  \"name\": \"Company ABC\",\n  \"address\": \"Jl. Sudirman 1\",\n  \"address_invoice\": \"Jl. Sudirman 1\",\n  \"city\": \"Jakarta\",\n  \"city_invoice\": \"Jakarta\",\n  \"phone\": \"021-555-555\",\n  \"fax\": \"021-555-333\",\n  \"email\": \"company@example.com\",\n  \"website\": \"https://example.com\",\n  \"npwp\": \"12.345.678.9-012.000\",\n  \"npkp\": \"NP-123\",\n  \"tax_name\": \"PT. Company\",\n  \"tax_position\": \"Direktur\",\n  \"invoice_name\": \"PT. Company\",\n  \"invoice_position\": \"Admin\"\n}", "options": { "raw": { "language": "json" } } }, "url": { "raw": "{{base_url}}/companies", "host": ["{{base_url}}"], "path": ["companies"] } } },
+        { "name": "Show Company", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/companies/:id", "host": ["{{base_url}}"], "path": ["companies", ":id"] } } },
+        { "name": "Update Company", "request": { "method": "PUT", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n  \"name\": \"Company ABC Updated\"\n}", "options": { "raw": { "language": "json" } } }, "url": { "raw": "{{base_url}}/companies/:id", "host": ["{{base_url}}"], "path": ["companies", ":id"] } } },
+        { "name": "Delete Company", "request": { "method": "DELETE", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/companies/:id", "host": ["{{base_url}}"], "path": ["companies", ":id"] } } }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        { "name": "List Products", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/products", "host": ["{{base_url}}"], "path": ["products"] } } },
+        { "name": "Create Product", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n  \"code\": \"P-01\",\n  \"name\": \"Product Sample\",\n  \"specification\": \"Spec A\",\n  \"description\": \"Deskripsi produk sample\",\n  \"author_code\": \"AU-001\",\n  \"author_name\": \"Author Name\",\n  \"compiler\": \"Compiler Name\",\n  \"year\": \"2025\",\n  \"product_group_id\": 1,\n  \"is_active\": true\n}", "options": { "raw": { "language": "json" } } }, "url": { "raw": "{{base_url}}/products", "host": ["{{base_url}}"], "path": ["products"] } } },
+        { "name": "Show Product", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/products/:id", "host": ["{{base_url}}"], "path": ["products", ":id"] } } },
+        { "name": "Update Product", "request": { "method": "PUT", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n  \"name\": \"Product Updated\"\n}", "options": { "raw": { "language": "json" } } }, "url": { "raw": "{{base_url}}/products/:id", "host": ["{{base_url}}"], "path": ["products", ":id"] } } },
+        { "name": "Delete Product", "request": { "method": "DELETE", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/products/:id", "host": ["{{base_url}}"], "path": ["products", ":id"] } } }
+      ]
+    },
+    {
+      "name": "Items",
+      "item": [
+        { "name": "List Items", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/items", "host": ["{{base_url}}"], "path": ["items"] } } },
+        { "name": "Create Item", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n  \"code\": \"IT-001\",\n  \"name\": \"Item A\",\n  \"acc_omzet\": \"4001\",\n  \"acc_piutang\": \"1101\",\n  \"cdf_omzet\": \"CDF1\",\n  \"cdf_piutang\": \"CDF2\",\n  \"is_active\": true\n}", "options": { "raw": { "language": "json" } } }, "url": { "raw": "{{base_url}}/items", "host": ["{{base_url}}"], "path": ["items"] } } },
+        { "name": "Show Item", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/items/:id", "host": ["{{base_url}}"], "path": ["items", ":id"] } } },
+        { "name": "Update Item", "request": { "method": "PUT", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n  \"name\": \"Item A Updated\"\n}", "options": { "raw": { "language": "json" } } }, "url": { "raw": "{{base_url}}/items/:id", "host": ["{{base_url}}"], "path": ["items", ":id"] } } },
+        { "name": "Delete Item", "request": { "method": "DELETE", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/items/:id", "host": ["{{base_url}}"], "path": ["items", ":id"] } } }
+      ]
+    },
+    {
+      "name": "Team Members",
+      "item": [
+        { "name": "List Team Members", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/team-members", "host": ["{{base_url}}"], "path": ["team-members"] } } },
+        { "name": "Create Team Member", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n  \"code\": \"TM-001\",\n  \"name\": \"Staf 1\",\n  \"position\": \"Teknisi\",\n  \"status\": \"AKTIF\",\n  \"is_active\": true\n}", "options": { "raw": { "language": "json" } } }, "url": { "raw": "{{base_url}}/team-members", "host": ["{{base_url}}"], "path": ["team-members"] } } },
+        { "name": "Show Team Member", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/team-members/:id", "host": ["{{base_url}}"], "path": ["team-members", ":id"] } } },
+        { "name": "Update Team Member", "request": { "method": "PUT", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n  \"name\": \"Staf 1 Updated\"\n}", "options": { "raw": { "language": "json" } } }, "url": { "raw": "{{base_url}}/team-members/:id", "host": ["{{base_url}}"], "path": ["team-members", ":id"] } } },
+        { "name": "Delete Team Member", "request": { "method": "DELETE", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/team-members/:id", "host": ["{{base_url}}"], "path": ["team-members", ":id"] } } }
+      ]
+    },
+    {
+      "name": "Banks",
+      "item": [
+        { "name": "List Banks", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/banks", "host": ["{{base_url}}"], "path": ["banks"] } } },
+        { "name": "Create Bank", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n  \"code\": \"BNK-01\",\n  \"name\": \"Bank ABC\",\n  \"account_number\": \"1234567890\",\n  \"account_name\": \"PT. Company\",\n  \"type\": \"M\",\n  \"acc_code\": \"4001\",\n  \"cdf_code\": \"CDF1\",\n  \"is_active\": true\n}", "options": { "raw": { "language": "json" } } }, "url": { "raw": "{{base_url}}/banks", "host": ["{{base_url}}"], "path": ["banks"] } } },
+        { "name": "Show Bank", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/banks/:id", "host": ["{{base_url}}"], "path": ["banks", ":id"] } } },
+        { "name": "Update Bank", "request": { "method": "PUT", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n  \"name\": \"Bank Updated\"\n}", "options": { "raw": { "language": "json" } } }, "url": { "raw": "{{base_url}}/banks/:id", "host": ["{{base_url}}"], "path": ["banks", ":id"] } } },
+        { "name": "Delete Bank", "request": { "method": "DELETE", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/banks/:id", "host": ["{{base_url}}"], "path": ["banks", ":id"] } } }
+      ]
+    },
+    {
+      "name": "Work Orders",
+      "item": [
+        { "name": "List Work Orders", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/work-orders", "host": ["{{base_url}}"], "path": ["work-orders"] } } },
+        { "name": "Create Work Order", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n  \"number\": \"WO-001\",\n  \"date\": \"2025-01-01\",\n  \"date_install\": \"2025-01-05\",\n  \"start_license\": \"2025-02-01\",\n  \"client_id\": 1,\n  \"product_id\": 1,\n  \"item_id\": 1,\n  \"status\": \"AKTIF\",\n  \"amount\": 500000,\n  \"description\": \"Install sample\",\n  \"item_count\": 1,\n  \"per_unit\": \"per-bulan\",\n  \"notes\": \"Installation notes\"\n}\n", "options": { "raw": { "language": "json" } } }, "url": { "raw": "{{base_url}}/work-orders", "host": ["{{base_url}}"], "path": ["work-orders"] } } },
+        { "name": "Show Work Order", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/work-orders/:id", "host": ["{{base_url}}"], "path": ["work-orders", ":id"] } } },
+        { "name": "Update Work Order", "request": { "method": "PUT", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n  \"status\": \"process\"\n}", "options": { "raw": { "language": "json" } } }, "url": { "raw": "{{base_url}}/work-orders/:id", "host": ["{{base_url}}"], "path": ["work-orders", ":id"] } } },
+        { "name": "Delete Work Order", "request": { "method": "DELETE", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/work-orders/:id", "host": ["{{base_url}}"], "path": ["work-orders", ":id"] } } }
+      ]
+    },
+    {
+      "name": "Installations",
+      "item": [
+        { "name": "List Installations", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/installations", "host": ["{{base_url}}"], "path": ["installations"] } } },
+        { "name": "Create Installation", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n  \"work_order_id\": 1,\n  \"client_id\": 1,\n  \"install_date\": \"2025-02-01\",\n  \"implementor_1\": \"Tech 1\",\n  \"notes\": \"Install notes\"\n}", "options": { "raw": { "language": "json" } } }, "url": { "raw": "{{base_url}}/installations", "host": ["{{base_url}}"], "path": ["installations"] } } },
+        { "name": "Show Installation", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/installations/:id", "host": ["{{base_url}}"], "path": ["installations", ":id"] } } },
+        { "name": "Update Installation", "request": { "method": "PUT", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n  \"implementor_1\": \"Tech Updated\"\n}", "options": { "raw": { "language": "json" } } }, "url": { "raw": "{{base_url}}/installations/:id", "host": ["{{base_url}}"], "path": ["installations", ":id"] } } },
+        { "name": "Delete Installation", "request": { "method": "DELETE", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/installations/:id", "host": ["{{base_url}}"], "path": ["installations", ":id"] } } }
+      ]
+    },
+    {
+      "name": "Invoices",
+      "item": [
+        { "name": "List Invoices", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/invoices", "host": ["{{base_url}}"], "path": ["invoices"] } } },
+        { "name": "Create Invoice", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n  \"number\": \"INV-2025-001\",\n  \"invoice_type_id\": 1,\n  \"client_id\": 1,\n  \"bank_id\": 1,\n  \"date\": \"2025-03-01\",\n  \"due_date\": \"2025-03-10\",\n  \"dpp\": 1000000,\n  \"discount\": 0,\n  \"ppn\": 100000,\n  \"total\": 1100000,\n  \"is_paid\": false\n}\n", "options": { "raw": { "language": "json" } } }, "url": { "raw": "{{base_url}}/invoices", "host": ["{{base_url}}"], "path": ["invoices"] } } },
+        { "name": "Show Invoice", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/invoices/:id", "host": ["{{base_url}}"], "path": ["invoices", ":id"] } } },
+        { "name": "Update Invoice", "request": { "method": "PUT", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n  \"status\": \"partial\"\n}", "options": { "raw": { "language": "json" } } }, "url": { "raw": "{{base_url}}/invoices/:id", "host": ["{{base_url}}"], "path": ["invoices", ":id"] } } },
+        { "name": "Delete Invoice", "request": { "method": "DELETE", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/invoices/:id", "host": ["{{base_url}}"], "path": ["invoices", ":id"] } } }
+      ]
+    },
+    {
+      "name": "Invoice Items",
+      "item": [
+        { "name": "List Invoice Items", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/invoice-items", "host": ["{{base_url}}"], "path": ["invoice-items"] } } },
+        { "name": "Create Invoice Item", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n  \"invoice_id\": 1,\n  \"master_item_product_id\": 1,\n  \"item_code\": \"IT-001\",\n  \"item_name\": \"Item A\",\n  \"description\": \"Deskripsi item\",\n  \"qty\": 2,\n  \"unit\": \"pcs\",\n  \"price\": 50000,\n  \"bruto\": 100000,\n  \"months\": 1\n}\n", "options": { "raw": { "language": "json" } } }, "url": { "raw": "{{base_url}}/invoice-items", "host": ["{{base_url}}"], "path": ["invoice-items"] } } },
+        { "name": "Show Invoice Item", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/invoice-items/:id", "host": ["{{base_url}}"], "path": ["invoice-items", ":id"] } } },
+        { "name": "Update Invoice Item", "request": { "method": "PUT", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n  \"qty\": 3\n}", "options": { "raw": { "language": "json" } } }, "url": { "raw": "{{base_url}}/invoice-items/:id", "host": ["{{base_url}}"], "path": ["invoice-items", ":id"] } } },
+        { "name": "Delete Invoice Item", "request": { "method": "DELETE", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/invoice-items/:id", "host": ["{{base_url}}"], "path": ["invoice-items", ":id"] } } }
+      ]
+    },
+    {
+      "name": "Licenses",
+      "item": [
+        { "name": "List Licenses", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/licenses", "host": ["{{base_url}}"], "path": ["licenses"] } } },
+        { "name": "Create License", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n  \"number\": \"LIC-001\",\n  \"license_type_id\": 1,\n  \"client_id\": 1,\n  \"date\": \"2025-04-01\",\n  \"dpp_amount\": 100000,\n  \"total_amount\": 100000,\n  \"is_paid\": false\n}\n", "options": { "raw": { "language": "json" } } }, "url": { "raw": "{{base_url}}/licenses", "host": ["{{base_url}}"], "path": ["licenses"] } } },
+        { "name": "Show License", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/licenses/:id", "host": ["{{base_url}}"], "path": ["licenses", ":id"] } } },
+        { "name": "Update License", "request": { "method": "PUT", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n  \"status\": \"paid\"\n}", "options": { "raw": { "language": "json" } } }, "url": { "raw": "{{base_url}}/licenses/:id", "host": ["{{base_url}}"], "path": ["licenses", ":id"] } } },
+        { "name": "Delete License", "request": { "method": "DELETE", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/licenses/:id", "host": ["{{base_url}}"], "path": ["licenses", ":id"] } } }
+      ]
+    },
+    {
+      "name": "Stop Licenses",
+      "item": [
+        { "name": "List Stop Licenses", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/stop-licenses", "host": ["{{base_url}}"], "path": ["stop-licenses"] } } },
+        { "name": "Create Stop License", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n  \"license_id\": 1,\n  \"stop_date\": \"2025-05-01\",\n  \"stop_invoice_number\": \"SI-001\",\n  \"reason\": \"Customer requested\"\n}", "options": { "raw": { "language": "json" } } }, "url": { "raw": "{{base_url}}/stop-licenses", "host": ["{{base_url}}"], "path": ["stop-licenses"] } } },
+        { "name": "Show Stop License", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/stop-licenses/:id", "host": ["{{base_url}}"], "path": ["stop-licenses", ":id"] } } },
+        { "name": "Update Stop License", "request": { "method": "PUT", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n  \"reason\": \"Updated reason\"\n}", "options": { "raw": { "language": "json" } } }, "url": { "raw": "{{base_url}}/stop-licenses/:id", "host": ["{{base_url}}"], "path": ["stop-licenses", ":id"] } } },
+        { "name": "Delete Stop License", "request": { "method": "DELETE", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/stop-licenses/:id", "host": ["{{base_url}}"], "path": ["stop-licenses", ":id"] } } }
+      ]
+    },
+    {
+      "name": "Payments",
+      "item": [
+        { "name": "List Payments", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/payments", "host": ["{{base_url}}"], "path": ["payments"] } } },
+        { "name": "Create Payment", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n  \"number\": \"PMT-001\",\n  \"date\": \"2025-06-01\",\n  \"invoice_id\": 1,\n  \"client_id\": 1,\n  \"description\": \"Payment description\",\n  \"amount\": 110000,\n  \"is_posted\": false\n}\n", "options": { "raw": { "language": "json" } } }, "url": { "raw": "{{base_url}}/payments", "host": ["{{base_url}}"], "path": ["payments"] } } },
+        { "name": "Show Payment", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/payments/:id", "host": ["{{base_url}}"], "path": ["payments", ":id"] } } },
+        { "name": "Update Payment", "request": { "method": "PUT", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n  \"amount\": 120000\n}", "options": { "raw": { "language": "json" } } }, "url": { "raw": "{{base_url}}/payments/:id", "host": ["{{base_url}}"], "path": ["payments", ":id"] } } },
+        { "name": "Delete Payment", "request": { "method": "DELETE", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/payments/:id", "host": ["{{base_url}}"], "path": ["payments", ":id"] } } }
+      ]
+    },
+    {
+      "name": "Debit Credit Notes",
+      "item": [
+        { "name": "List Notes", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/debit-credit-notes", "host": ["{{base_url}}"], "path": ["debit-credit-notes"] } } },
+        { "name": "Create Note", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n  \"number\": \"DCN-001\",\n  \"type\": \"D\",\n  \"invoice_id\": 1,\n  \"client_id\": 1,\n  \"date\": \"2025-07-01\",\n  \"dpp_amount\": 45000,\n  \"ppn_amount\": 5000,\n  \"total_amount\": 50000\n}\n", "options": { "raw": { "language": "json" } } }, "url": { "raw": "{{base_url}}/debit-credit-notes", "host": ["{{base_url}}"], "path": ["debit-credit-notes"] } } },
+        { "name": "Show Note", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/debit-credit-notes/:id", "host": ["{{base_url}}"], "path": ["debit-credit-notes", ":id"] } } },
+        { "name": "Update Note", "request": { "method": "PUT", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n  \"reason\": \"Updated reason\"\n}", "options": { "raw": { "language": "json" } } }, "url": { "raw": "{{base_url}}/debit-credit-notes/:id", "host": ["{{base_url}}"], "path": ["debit-credit-notes", ":id"] } } },
+        { "name": "Delete Note", "request": { "method": "DELETE", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/debit-credit-notes/:id", "host": ["{{base_url}}"], "path": ["debit-credit-notes", ":id"] } } }
+      ]
+    },
+    {
+      "name": "Receivables",
+      "item": [
+        { "name": "List Receivables", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/receivables", "host": ["{{base_url}}"], "path": ["receivables"] } } },
+        { "name": "Create Receivable", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n  \"client_id\": 1,\n  \"invoice_id\": 1,\n  \"amount\": 100000,\n  \"paid\": 0,\n  \"remaining\": 100000,\n  \"status\": \"unpaid\"\n}", "options": { "raw": { "language": "json" } } }, "url": { "raw": "{{base_url}}/receivables", "host": ["{{base_url}}"], "path": ["receivables"] } } },
+        { "name": "Show Receivable", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/receivables/:id", "host": ["{{base_url}}"], "path": ["receivables", ":id"] } } },
+        { "name": "Update Receivable", "request": { "method": "PUT", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n  \"paid\": 50000\n}", "options": { "raw": { "language": "json" } } }, "url": { "raw": "{{base_url}}/receivables/:id", "host": ["{{base_url}}"], "path": ["receivables", ":id"] } } },
+        { "name": "Delete Receivable", "request": { "method": "DELETE", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/receivables/:id", "host": ["{{base_url}}"], "path": ["receivables", ":id"] } } }
+      ]
+    },
+    {
+      "name": "Protections",
+      "item": [
+        { "name": "List Protections", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/protections", "host": ["{{base_url}}"], "path": ["protections"] } } },
+        { "name": "Create Protection", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n  \"period\": \"2025-08\",\n  \"is_protected\": true,\n  \"protected_at\": \"2025-08-12\",\n  \"protected_by\": 1\n}", "options": { "raw": { "language": "json" } } }, "url": { "raw": "{{base_url}}/protections", "host": ["{{base_url}}"], "path": ["protections"] } } },
+        { "name": "Show Protection", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/protections/:id", "host": ["{{base_url}}"], "path": ["protections", ":id"] } } },
+        { "name": "Update Protection", "request": { "method": "PUT", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n  \"period\": \"2025-09\",\n  \"is_protected\": false\n}\n", "options": { "raw": { "language": "json" } } }, "url": { "raw": "{{base_url}}/protections/:id", "host": ["{{base_url}}"], "path": ["protections", ":id"] } } },
+        { "name": "Delete Protection", "request": { "method": "DELETE", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/protections/:id", "host": ["{{base_url}}"], "path": ["protections", ":id"] } } }
+      ]
+    }
+  ]
+}

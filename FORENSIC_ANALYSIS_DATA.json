@@ -1,0 +1,297 @@
+{
+  "report": {
+    "title": "FitArt JPAS - Enterprise API Forensic Analysis",
+    "date": "2026-04-14",
+    "status": "CRITICAL",
+    "summary": {
+      "total_backend_endpoints": 171,
+      "total_postman_endpoints": 120,
+      "endpoints_with_test_responses": 85,
+      "endpoints_untested": 86,
+      "test_coverage_percentage": 49.7,
+      "risk_level": "CRITICAL"
+    },
+    "critical_untested_endpoints": [
+      {
+        "priority": "CRITICAL",
+        "endpoint": "POST /api/posting/omzet",
+        "function": "Post invoice revenue to general ledger",
+        "risk_level": "CRITICAL",
+        "impact": "GL balance corruption, unreliable financial statements",
+        "root_cause": "No test response examples in Postman collection",
+        "business_impact": "Month-end reconciliation fails, audit findings",
+        "test_status": "❌ NO TEST DATA",
+        "module": "Posting",
+        "severity_score": 10
+      },
+      {
+        "priority": "CRITICAL",
+        "endpoint": "POST /api/posting/payments",
+        "function": "Batch post payment records",
+        "risk_level": "CRITICAL",
+        "impact": "AR/Cash account reconciliation failures",
+        "root_cause": "Only request structure documented, no response examples",
+        "business_impact": "Customer collections delayed, AR aging incorrect",
+        "test_status": "❌ NO TEST RESPONSES",
+        "module": "Posting",
+        "severity_score": 10
+      },
+      {
+        "priority": "CRITICAL",
+        "endpoint": "POST /api/receivables/process",
+        "function": "Process receivable aging and collection",
+        "risk_level": "HIGH",
+        "impact": "Revenue recognition issues",
+        "root_cause": "No test validation examples",
+        "business_impact": "Invoices marked as collected incorrectly, revenue misstated",
+        "test_status": "❌ NO TEST DATA",
+        "module": "Receivable",
+        "severity_score": 9
+      },
+      {
+        "priority": "HIGH",
+        "endpoint": "POST /api/invoices",
+        "function": "Create new invoices",
+        "risk_level": "HIGH",
+        "impact": "Invoice data integrity",
+        "root_cause": "Write endpoint NOT documented in Postman",
+        "business_impact": "Partial invoice creation, GL imbalance",
+        "test_status": "❌ NOT IN POSTMAN",
+        "module": "Finance",
+        "severity_score": 9
+      },
+      {
+        "priority": "HIGH",
+        "endpoint": "POST /api/recurring/invoices/generate",
+        "function": "Generate recurring invoices automatically",
+        "risk_level": "HIGH",
+        "impact": "Duplicate billing, overbilling customers",
+        "root_cause": "Logic never executed in test environment",
+        "business_impact": "Customer complaints, revenue disputes",
+        "test_status": "❌ NO TEST DATA",
+        "module": "Finance",
+        "severity_score": 8
+      },
+      {
+        "priority": "HIGH",
+        "endpoint": "GET /api/reports/receivable/detail",
+        "function": "Generate AR detail report",
+        "risk_level": "HIGH",
+        "impact": "Report fails in production",
+        "root_cause": "Response structure never validated",
+        "business_impact": "AR team can't track collections",
+        "test_status": "❌ UNTESTED RESPONSE",
+        "module": "Reports",
+        "severity_score": 8
+      },
+      {
+        "priority": "HIGH",
+        "endpoint": "GET /api/reports/tax/vat",
+        "function": "Generate VAT tax report",
+        "risk_level": "HIGH",
+        "impact": "Tax calculation errors",
+        "root_cause": "No response validation",
+        "business_impact": "Regulatory non-compliance, audit risk",
+        "test_status": "❌ UNTESTED",
+        "module": "Reports",
+        "severity_score": 8
+      },
+      {
+        "priority": "MEDIUM-HIGH",
+        "endpoint": "GET /api/invoices/{invoice}/pdf",
+        "function": "Generate PDF invoice",
+        "risk_level": "MEDIUM-HIGH",
+        "impact": "Customer invoice delivery fails",
+        "root_cause": "PDF generation logic unvalidated",
+        "business_impact": "Invoices not delivered to customers",
+        "test_status": "❌ NO RESPONSE EXAMPLE",
+        "module": "Print",
+        "severity_score": 7
+      }
+    ],
+    "missing_from_postman": {
+      "count": 51,
+      "description": "Backend endpoints NOT documented in Postman collection",
+      "categories": [
+        {
+          "category": "Write Operations - Financial",
+          "endpoints": [
+            "POST /invoices",
+            "PUT /invoices/{id}",
+            "DELETE /invoices/{id}",
+            "POST /invoice-items",
+            "PUT /invoice-items/{id}",
+            "DELETE /invoice-items/{id}",
+            "POST /payments",
+            "PUT /payments/{id}",
+            "DELETE /payments/{id}",
+            "POST /debit-credit-notes",
+            "PUT /debit-credit-notes/{id}",
+            "DELETE /debit-credit-notes/{id}"
+          ],
+          "risk_level": "CRITICAL",
+          "count": 12
+        },
+        {
+          "category": "Custom Actions",
+          "endpoints": [
+            "POST /invoice-types/{invoiceType}/toggle-status",
+            "POST /master-item-products/{masterItemProduct}/toggle-status",
+            "POST /work-orders/{work_order}/assign-team"
+          ],
+          "risk_level": "HIGH",
+          "count": 3
+        },
+        {
+          "category": "Advanced Lookups & Variations",
+          "endpoints": [
+            "GET /payments/search",
+            "GET /posting/payments/search",
+            "Advanced search variations"
+          ],
+          "risk_level": "MEDIUM",
+          "count": 5
+        }
+      ]
+    },
+    "test_coverage_by_module": {
+      "01_Auth": {
+        "total": 3,
+        "tested": 3,
+        "coverage_percent": 100,
+        "status": "✅ FULLY TESTED"
+      },
+      "02_Setup": {
+        "total": 7,
+        "tested": 5,
+        "coverage_percent": 71.4,
+        "status": "⚠️ PARTIALLY TESTED"
+      },
+      "03_Lookups": {
+        "total": 11,
+        "tested": 9,
+        "coverage_percent": 81.8,
+        "status": "⚠️ MOSTLY TESTED"
+      },
+      "04_Master_Data": {
+        "total": 45,
+        "tested": 38,
+        "coverage_percent": 84.4,
+        "status": "⚠️ MOSTLY TESTED"
+      },
+      "05_Sales": {
+        "total": 18,
+        "tested": 15,
+        "coverage_percent": 83.3,
+        "status": "⚠️ MOSTLY TESTED"
+      },
+      "06_Finance": {
+        "total": 24,
+        "tested": 14,
+        "coverage_percent": 58.3,
+        "status": "❌ CRITICAL GAP"
+      },
+      "07_Posting": {
+        "total": 11,
+        "tested": 4,
+        "coverage_percent": 36.4,
+        "status": "❌ CRITICAL GAP"
+      },
+      "08_Receivable": {
+        "total": 8,
+        "tested": 5,
+        "coverage_percent": 62.5,
+        "status": "❌ CRITICAL GAP"
+      },
+      "09_Reports": {
+        "total": 20,
+        "tested": 11,
+        "coverage_percent": 55,
+        "status": "❌ CRITICAL GAP"
+      },
+      "10_Print": {
+        "total": 4,
+        "tested": 1,
+        "coverage_percent": 25,
+        "status": "❌ CRITICAL GAP"
+      },
+      "11_Protection": {
+        "total": 5,
+        "tested": 4,
+        "coverage_percent": 80,
+        "status": "⚠️ MOSTLY TESTED"
+      }
+    },
+    "recommended_immediate_tests": [
+      {
+        "priority": 1,
+        "endpoint": "POST /posting/omzet",
+        "test_scenarios": [
+          "Simple revenue posting",
+          "Multiple GL accounts",
+          "Rounding adjustments",
+          "Invalid GL account",
+          "Closed period rejection",
+          "Currency mismatch"
+        ],
+        "estimated_hours": 4,
+        "owner": "QA Lead"
+      },
+      {
+        "priority": 2,
+        "endpoint": "POST /posting/payments",
+        "test_scenarios": [
+          "Single payment posting",
+          "Batch posting",
+          "Partial payment",
+          "Over-payment",
+          "Invalid bank account",
+          "Concurrent posts"
+        ],
+        "estimated_hours": 4,
+        "owner": "QA Lead"
+      },
+      {
+        "priority": 3,
+        "endpoint": "POST /invoices",
+        "test_scenarios": [
+          "Simple invoice",
+          "Invoice with taxes",
+          "Invoice with discounts",
+          "Multi-item invoice",
+          "Validation failures",
+          "Duplicate number rejection"
+        ],
+        "estimated_hours": 6,
+        "owner": "QA Lead"
+      },
+      {
+        "priority": 4,
+        "endpoint": "GET /reports/receivable/detail",
+        "test_scenarios": [
+          "Single client report",
+          "Multiple invoices",
+          "Partial payments",
+          "Aging analysis",
+          "Currency handling",
+          "Empty result set"
+        ],
+        "estimated_hours": 4,
+        "owner": "Backend + QA"
+      }
+    ],
+    "audit_findings": {
+      "sox_compliance": "FAIL - GL posting untested",
+      "tax_ready": "FAIL - Tax reports not validated",
+      "audit_trail": "FAIL - AR posting unverified",
+      "data_integrity": "FAIL - Financial operations unvalidated",
+      "error_handling": "FAIL - Error responses not documented"
+    },
+    "recommendations": {
+      "phase_1_immediate": "Create Postman tests for all financial operations (Week 1)",
+      "phase_2_short_term": "Implement 85%+ coverage on finance/posting modules (Weeks 2-3)",
+      "phase_3_medium_term": "Add automated CI/CD test execution (Month 2)",
+      "phase_4_long_term": "Implement continuous integration testing on all deploys"
+    }
+  }
+}

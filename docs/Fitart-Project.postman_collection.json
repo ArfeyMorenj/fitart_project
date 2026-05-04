@@ -1,0 +1,24 @@
+{
+  "info": {
+    "name": "Fitart Project API",
+    "_postman_id": "fitart-project-collection-001",
+    "description": "Postman collection for Fitart Project API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Clients",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/clients",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "clients"]
+        }
+      }
+    }
+  ]
+}

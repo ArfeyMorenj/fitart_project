@@ -1,0 +1,199 @@
+#!/usr/bin/bash
+# Script to verify database data for testing
+# Usage: php artisan tinker < this_file
+# Or copy-paste individual commands
+
+# ========== SUMMARY COUNT ==========
+"Total Users: " . User::count();
+"Total Team Members: " . TeamMember::count();
+"Total Product Groups: " . ProductGroup::count();
+"Total Products: " . Product::count();
+"Total Chart of Accounts: " . ChartOfAccount::count();
+"Total Invoices: " . Invoice::count();
+"Total Invoice Items: " . InvoiceItem::count();
+"Total Journal Entries: " . JournalEntry::count();
+
+# ========== USERS ==========
+User::select('id', 'username', 'name', 'email', 'role')->get();
+
+# ========== TEAM MEMBERS ==========
+TeamMember::select('id', 'code', 'name', 'position', 'status')->get();
+
+# ========== PRODUCT GROUPS ==========
+ProductGroup::select('id', 'code', 'name', 'acc_omzet', 'cdf_piutang')->get();
+
+# ========== PRODUCT GROUP WITH PRODUCTS ==========
+ProductGroup::with('products')->get();
+
+# ========== PRODUCTS ==========
+Product::select('id', 'code', 'name', 'product_group_id', 'author_code')->get();
+
+# ========== PRODUCTS WITH GROUP ==========
+Product::with('productGroup')->get();
+
+# ========== CHART OF ACCOUNTS ==========
+ChartOfAccount::select('id', 'code', 'name')->get();
+
+# ========== INVOICES ==========
+Invoice::select('id', 'invoice_number', 'date', 'customer_name', 'status', 'amount')->get();
+
+# ========== INVOICES WITH ITEMS ==========
+Invoice::with('invoiceItems.product')->get();
+
+# ========== JOURNAL ENTRIES ==========
+JournalEntry::select('id', 'entry_number', 'date', 'description', 'status')->get();
+
+# ========== JOURNAL ENTRIES WITH DETAILS ==========
+JournalEntry::with('details')->get();
+
+# ========== VERIFY JOURNAL BALANCED ==========
+JournalEntry::with('details')->get()->map(function($e) {
+    return [
+        'entry' => $e->entry_number,
+        'debit' => $e->details->sum('debit'),
+        'credit' => $e->details->sum('credit'),
+        'balanced' => $e->details->sum('debit') == $e->details->sum('credit')
+    ];
+});
+
+# ========== SPECIFIC QUERIES ==========
+
+# Get Product Group LSA with its products
+ProductGroup::where('code', 'LSA')->with('products')->first();
+
+# Get Product by code
+Product::where('code', '04')->first();
+
+# Get Invoice with all details
+Invoice::find(1)->with('invoiceItems.product')->first();
+
+# Get Journal Entry with all details
+JournalEntry::find(1)->with('details')->first();
+
+# Search by name/code
+TeamMember::where('name', 'like', '%IMAM%')->first();
+Product::where('name', 'like', '%IKLAN%')->first();
+ProductGroup::where('code', 'LSA')->first();
+Invoice::where('invoice_number', 'INV-2026-001')->first();
+
+# ========== CREATE TEST DATA (jika perlu) ==========
+
+# Create Team Member
+TeamMember::create([
+    'code' => '06',
+    'name' => 'AGUS HERMAWAN',
+    'position' => 'MARKETING MANAGER',
+    'status' => 'STATUS1',
+    'is_active' => true,
+]);
+
+# Create Product Group
+ProductGroup::create([
+    'code' => 'SERVICE',
+    'name' => 'SERVICE DAN MAINTENANCE',
+    'acc_omzet' => '5033',
+    'cdf_piutang' => '1535',
+    'is_active' => true,
+]);
+
+# Create Product
+Product::create([
+    'code' => '05',
+    'name' => 'INVOICE MANAGEMENT SYSTEM',
+    'specification' => 'BILLING SYSTEM',
+    'description' => 'Sistem manajemen invoice terintegrasi',
+    'author_code' => '01',
+    'author_name' => 'IMAM S ARIFIN',
+    'compiler' => 'LARAVEL 10',
+    'year' => '2026',
+    'product_group_id' => 1,
+    'is_active' => true,
+]);
+
+# Create Invoice
+Invoice::create([
+    'invoice_number' => 'INV-2026-001',
+    'date' => '2026-04-25',
+    'customer_name' => 'PT INDO JAYA MAKMUR',
+    'amount' => 0,
+    'status' => 'DRAFT',
+    'is_active' => true,
+]);
+
+# Add Invoice Items
+InvoiceItem::create([
+    'invoice_id' => 1,
+    'product_id' => 2,
+    'quantity' => 5,
+    'unit_price' => 1000000,
+    'amount' => 5000000,
+]);
+
+InvoiceItem::create([
+    'invoice_id' => 1,
+    'product_id' => 5,
+    'quantity' => 2,
+    'unit_price' => 2000000,
+    'amount' => 4000000,
+]);
+
+# Create Journal Entry
+JournalEntry::create([
+    'entry_number' => 'JE-2026-001',
+    'date' => '2026-04-25',
+    'description' => 'Posting invoice INV-2026-001',
+    'status' => 'DRAFT',
+]);
+
+# ========== UPDATE TEST DATA ==========
+
+# Update Team Member
+TeamMember::find(4)->update(['position' => 'SENIOR PROGRAMMER']);
+
+# Update Product Group
+ProductGroup::find(4)->update(['acc_omzet' => '5033', 'cdf_piutang' => '1535']);
+
+# Update Product
+Product::find(2)->update(['compiler' => 'DELPHI 10']);
+
+# Update Invoice
+Invoice::find(1)->update(['customer_name' => 'PT MAJU JAYA BERSAMA']);
+
+# Post Invoice (change status)
+Invoice::find(1)->update(['status' => 'POSTED']);
+
+# Post Journal Entry (change status)
+JournalEntry::find(1)->update(['status' => 'POSTED']);
+
+# ========== DELETE TEST DATA ==========
+
+# Delete Team Member
+TeamMember::find(6)->delete();
+
+# Soft Delete (if using soft deletes)
+TeamMember::find(6)->forceDelete();
+
+# ========== HELPFUL TIPS ==========
+
+# Get model structure
+$user = User::first();
+$user->getAttributes();
+
+# Get model relationships
+Product::first()->productGroup;
+
+# Count with where clause
+TeamMember::where('is_active', true)->count();
+
+# Pagination test
+Product::paginate(10);
+
+# Search/Filter
+TeamMember::where('name', 'like', '%ARIT%')->get();
+ProductGroup::whereNull('acc_omzet')->get();
+
+# Update multiple
+TeamMember::where('status', 'STATUS1')->update(['is_active' => false]);
+
+# Export to JSON
+Product::all()->toJson();

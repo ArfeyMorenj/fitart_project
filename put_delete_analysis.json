@@ -1,0 +1,9 @@
+{
+    "put_total": 0,
+    "put_untested": 0,
+    "delete_total": 0,
+    "delete_untested": 0,
+    "grand_total_untested": 0,
+    "put_endpoints": [],
+    "delete_endpoints": []
+}

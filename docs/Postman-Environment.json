@@ -1,0 +1,10 @@
+{
+  "id":"fitart-env-001",
+  "name":"Fitart Local",
+  "values":[
+    {"key":"base_url","value":"http://localhost:8000","enabled":true},
+    {"key":"token","value":"","enabled":true},
+    {"key":"admin_email","value":"admin@fitart.co.id","enabled":true}
+  ],
+  "timestamp":1620000000000
+}

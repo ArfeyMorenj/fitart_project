@@ -1,0 +1,1075 @@
+{
+  "info": {
+    "_postman_id": "missing-endpoints-fitart",
+    "name": "FitArt Missing Endpoints Collection",
+    "description": "20 missing endpoints yang ada di routes/api.php tapi belum di Postman collection utama\n\nEndpoints ini bisa di-import langsung atau di-merge dengan collection yang sudah ada.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "01 Invoice License",
+      "item": [
+        {
+          "name": "GET api/invoice-license",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/invoice-license",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "invoice-license"
+              ]
+            },
+            "description": "List all license invoices"
+          },
+          "response": []
+        },
+        {
+          "name": "GET api/invoice-license/search",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/invoice-license/search?q=",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "invoice-license",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Search license invoices"
+          },
+          "response": []
+        },
+        {
+          "name": "GET api/invoice-license/:invoice",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/invoice-license/:invoice",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "invoice-license",
+                ":invoice"
+              ],
+              "variable": [
+                {
+                  "key": "invoice",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Get specific license invoice"
+          },
+          "response": []
+        },
+        {
+          "name": "GET api/invoice-license/:invoice/summary-journal",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/invoice-license/:invoice/summary-journal",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "invoice-license",
+                ":invoice",
+                "summary-journal"
+              ],
+              "variable": [
+                {
+                  "key": "invoice",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Get summary journal for license invoice"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "02 Invoice Products",
+      "item": [
+        {
+          "name": "GET api/invoice-products",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/invoice-products",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "invoice-products"
+              ]
+            },
+            "description": "List all product invoices"
+          },
+          "response": []
+        },
+        {
+          "name": "GET api/invoice-products/search",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/invoice-products/search?q=",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "invoice-products",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Search product invoices"
+          },
+          "response": []
+        },
+        {
+          "name": "GET api/invoice-products/:invoice",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/invoice-products/:invoice",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "invoice-products",
+                ":invoice"
+              ],
+              "variable": [
+                {
+                  "key": "invoice",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Get specific product invoice"
+          },
+          "response": []
+        },
+        {
+          "name": "GET api/invoice-products/:invoice/summary-journal",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/invoice-products/:invoice/summary-journal",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "invoice-products",
+                ":invoice",
+                "summary-journal"
+              ],
+              "variable": [
+                {
+                  "key": "invoice",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Get summary journal for product invoice"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "03 Summary Journals",
+      "item": [
+        {
+          "name": "GET api/invoices/:invoice/summary-journal",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/invoices/:invoice/summary-journal",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "invoices",
+                ":invoice",
+                "summary-journal"
+              ],
+              "variable": [
+                {
+                  "key": "invoice",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Get summary journal for invoice"
+          },
+          "response": []
+        },
+        {
+          "name": "GET api/debit-credit-notes/:debitCreditNote/summary-journal",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/debit-credit-notes/:debitCreditNote/summary-journal",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "debit-credit-notes",
+                ":debitCreditNote",
+                "summary-journal"
+              ],
+              "variable": [
+                {
+                  "key": "debitCreditNote",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Get summary journal for debit/credit note"
+          },
+          "response": []
+        },
+        {
+          "name": "GET api/posting/payments/:postingPayment/summary-journal",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/posting/payments/:postingPayment/summary-journal",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "posting",
+                "payments",
+                ":postingPayment",
+                "summary-journal"
+              ],
+              "variable": [
+                {
+                  "key": "postingPayment",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Get summary journal for posting payment"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "04 Posting Costs",
+      "item": [
+        {
+          "name": "POST api/posting/payments/:postingPayment/costs",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {\n    pm.response.to.have.status(201);\n});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"account_code\": \"\",\n    \"description\": \"\",\n    \"amount\": 0\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/posting/payments/:postingPayment/costs",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "posting",
+                "payments",
+                ":postingPayment",
+                "costs"
+              ],
+              "variable": [
+                {
+                  "key": "postingPayment",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Create new posting cost"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT api/posting/payments/:postingPayment/costs/:cost",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"account_code\": \"\",\n    \"description\": \"\",\n    \"amount\": 0\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/posting/payments/:postingPayment/costs/:cost",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "posting",
+                "payments",
+                ":postingPayment",
+                "costs",
+                ":cost"
+              ],
+              "variable": [
+                {
+                  "key": "postingPayment",
+                  "value": ""
+                },
+                {
+                  "key": "cost",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Update posting cost"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "05 Journals",
+      "item": [
+        {
+          "name": "GET api/journals",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/journals",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "journals"
+              ]
+            },
+            "description": "List all journals"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "06 Receivables & Processing",
+      "item": [
+        {
+          "name": "POST api/receivables/process",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200 or 201\", function () {\n    pm.response.to.have.status([200, 201]);\n});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"period\": \"2026-03\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/receivables/process",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "receivables",
+                "process"
+              ]
+            },
+            "description": "Process receivables for a specific period"
+          },
+          "response": []
+        },
+        {
+          "name": "POST api/recurring/invoices/generate",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200 or 201\", function () {\n    pm.response.to.have.status([200, 201]);\n});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/recurring/invoices/generate",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "recurring",
+                "invoices",
+                "generate"
+              ]
+            },
+            "description": "Generate recurring invoices"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "07 Posting Batch Operations",
+      "item": [
+        {
+          "name": "POST api/posting/omzet",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200 or 201\", function () {\n    pm.response.to.have.status([200, 201]);\n});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/posting/omzet",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "posting",
+                "omzet"
+              ]
+            },
+            "description": "Post invoice revenue"
+          },
+          "response": []
+        },
+        {
+          "name": "POST api/posting/payments",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200 or 201\", function () {\n    pm.response.to.have.status([200, 201]);\n});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"payment_ids\": []\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/posting/payments",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "posting",
+                "payments"
+              ]
+            },
+            "description": "Post batch payments"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "08 Print Operations",
+      "item": [
+        {
+          "name": "GET api/print/invoices/batch",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/print/invoices/batch",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "print",
+                "invoices",
+                "batch"
+              ]
+            },
+            "description": "Get batch invoice print status"
+          },
+          "response": []
+        },
+        {
+          "name": "POST api/print/invoices/batch",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200 or 201\", function () {\n    pm.response.to.have.status([200, 201]);\n});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"invoice_ids\": []\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/print/invoices/batch",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "print",
+                "invoices",
+                "batch"
+              ]
+            },
+            "description": "Queue batch invoice printing"
+          },
+          "response": []
+        },
+        {
+          "name": "GET api/print/invoices/:invoice/pdf",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/print/invoices/:invoice/pdf",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "print",
+                "invoices",
+                ":invoice",
+                "pdf"
+              ],
+              "variable": [
+                {
+                  "key": "invoice",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Generate invoice PDF"
+          },
+          "response": []
+        },
+        {
+          "name": "GET api/print/receipts/:posting_payment/pdf",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/print/receipts/:posting_payment/pdf",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "print",
+                "receipts",
+                ":posting_payment",
+                "pdf"
+              ],
+              "variable": [
+                {
+                  "key": "posting_payment",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Generate receipt PDF"
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
